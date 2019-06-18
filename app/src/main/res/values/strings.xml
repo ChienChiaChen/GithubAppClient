@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GihubAppClient</string>
+
+    <string name="search_recent_empty_state">Search users..</string>
+    <string name="search_hint">@string/search_recent_empty_state</string>
+
 </resources>
