@@ -1,6 +1,7 @@
 package com.chiachen.gihubappclient.di
 
 import com.chiachen.gihubappclient.App
+import com.chiachen.gihubappclient.presentation.main.di.MainActivityInjector
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -9,7 +10,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AppModule::class]
+        AppModule::class,
+        MainActivityInjector::class
+    ]
 )
 @Singleton
 interface AppComponent : AndroidInjector<App> {

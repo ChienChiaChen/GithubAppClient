@@ -1,6 +1,6 @@
 package com.chiachen.gihubappclient
 
-import com.chiachen.gihubappclient.di.qualifier.DaggerAppComponent
+import com.chiachen.gihubappclient.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
