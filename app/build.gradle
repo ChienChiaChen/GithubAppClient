@@ -74,4 +74,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycle"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.lifecycle"
 
+        debugImplementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.0"
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="item" type="com.chiachen.gihubappclient.model.Item"/>
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e2e3e7">
+
+        <View
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:background="@android:color/holo_red_light"
+                android:visibility="invisible"/>
+
+        <FrameLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_horizontal"
+                android:paddingEnd="@dimen/margin_horizontal"
+                android:background="?android:windowBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/root"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <com.chiachen.gihubappclient.util.widget.ShapeImageView
+                        android:id="@+id/cover"
+                        android:layout_width="@dimen/item_cover_size"
+                        android:layout_height="@dimen/item_cover_size"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/item_cover_margin_vertical"
+                        android:layout_marginBottom="@dimen/item_cover_margin_vertical"
+                        app:avatar="@{item.avatarUrl}"/>
+
+                <TextView
+                        android:id="@+id/firstText"
+                        app:layout_constraintTop_toTopOf="@+id/cover"
+                        app:layout_constraintStart_toEndOf="@+id/cover"
+                        app:layout_constraintBottom_toBottomOf="@+id/cover"
+                        app:layout_constraintEnd_toStartOf="@+id/more"
+                        android:text="@{item.login}"
+                        tools:text="@tools:sample/lorem"
+                        style="@style/Default.MainText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"/>
+
+                <ImageButton
+                        android:id="@+id/more"
+                        app:layout_constraintTop_toTopOf="@id/cover"
+                        app:layout_constraintBottom_toBottomOf="@id/cover"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/common_more"
+                        android:padding="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+
+</layout>

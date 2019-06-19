@@ -1,15 +1,20 @@
 package com.chiachen.gihubappclient.presentation.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.core.view.isEmpty
+import androidx.core.view.size
 import androidx.lifecycle.ViewModelProvider
 import com.chiachen.gihubappclient.R
 import com.chiachen.gihubappclient.presentation.base.BaseFragment
+import com.chiachen.gihubappclient.presentation.base.adapters.ItemAdapter
 import com.chiachen.gihubappclient.util.extension.*
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
@@ -26,10 +31,17 @@ class MainFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private val viewModel by lazyFast { viewModelProvider<MainFragmentViewModel>(viewModelFactory) }
 
-    private var queryDisposable : Disposable? = null
+    @Inject
+    lateinit var adapter: ItemAdapter
+
+    private var queryDisposable: Disposable? = null
 
     override fun onViewBound(view: View, savedInstanceState: Bundle?) {
         super.onViewBound(view, savedInstanceState)
+        view.list.adapter = adapter
+        view.list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context!!)
+        view.list.setHasFixedSize(true)
+        view.list.addLoadMoreListener(viewModel::loadMore)
 
         RxTextView.afterTextChangeEvents(view.editText)
             .map { it.view().text.isBlank() }
@@ -37,6 +49,11 @@ class MainFragment : BaseFragment() {
             .subscribe(viewLifecycleOwner) { isEmpty ->
                 view.clear.toggleVisibility(!isEmpty, true)
             }
+
+        viewModel.dataSet.subscribe(viewLifecycleOwner) { list ->
+            adapter.update(list)
+            emptyStateText.toggleVisibility(list.isEmpty(), true)
+        }
 
     }
 

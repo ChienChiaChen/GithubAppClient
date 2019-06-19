@@ -11,4 +11,6 @@
     <color name="toolbar">#FAFAFA</color>
     <color name="status_bar">#c6c6c6</color>
 
+    <color name="text_color_primary">@color/dark_grey</color>
+
 </resources>

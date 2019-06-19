@@ -1,6 +1,7 @@
 package com.chiachen.gihubappclient.di
 
 import com.chiachen.gihubappclient.App
+import com.chiachen.gihubappclient.api.github.GithubModule
 import com.chiachen.gihubappclient.presentation.main.di.MainActivityInjector
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -12,7 +13,8 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         AppModule::class,
         MainActivityInjector::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        GithubModule::class
     ]
 )
 @Singleton
