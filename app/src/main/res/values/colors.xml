@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="dark_grey">#262626</color>
+    <color name="mid_grey">#40606060</color>
 
     <color name="background">@android:color/white</color>
     <color name="toolbar">#FAFAFA</color>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- item song -->
+    <dimen name="item_cover_margin_vertical">7dp</dimen>
+    <dimen name="item_cover_size">48dp</dimen>
+    <dimen name="item_name">13dp</dimen>
+
+</resources>
