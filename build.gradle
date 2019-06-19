@@ -41,6 +41,7 @@ ext {
     rx_java = '2.2.8'
     rx_android = '2.1.1'
     rx_kotlin = '2.3.0'
+    rx_binding = '2.2.0'
 
     dagger = '2.22.1'
     glide = '4.9.0'
