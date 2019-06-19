@@ -59,19 +59,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"/>
 
-                <ImageButton
-                        android:id="@+id/more"
-                        app:layout_constraintTop_toTopOf="@id/cover"
-                        app:layout_constraintBottom_toBottomOf="@id/cover"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:src="@drawable/common_more"
-                        android:padding="12dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"/>
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

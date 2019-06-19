@@ -15,14 +15,14 @@ import javax.inject.Inject
 
 class ItemAdapter @Inject constructor() : RecyclerView.Adapter<DataBoundViewHolder>() {
 
-    private var mDataset: List<Item> = ArrayList()
+    private var mDataset: MutableList<Item> = ArrayList()
 
     companion object {
         private const val TAG = "ItemAdapter"
     }
 
-    fun update(newData: List<Item>) {
-        this.mDataset = newData
+    fun update(newData: MutableList<Item>) {
+        this.mDataset.addAll(newData)
         notifyDataSetChanged()
         Log.d(TAG, newData.size.toString())
     }
@@ -55,6 +55,11 @@ class ItemAdapter @Inject constructor() : RecyclerView.Adapter<DataBoundViewHold
 
     private fun bind(binding: ViewDataBinding, item: Item, position: Int) {
         binding.setVariable(BR.item, item)
+    }
+
+    fun clear() {
+        mDataset.clear()
+        notifyDataSetChanged()
     }
 
 

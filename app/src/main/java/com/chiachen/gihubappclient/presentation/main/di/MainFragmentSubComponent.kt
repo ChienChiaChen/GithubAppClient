@@ -5,11 +5,7 @@ import com.chiachen.gihubappclient.presentation.main.MainFragment
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
-@Subcomponent(
-    modules = [
-        MainFragmentModule::class,
-        MainFragmentViewModelModule::class]
-)
+@Subcomponent(modules = [MainFragmentModule::class])
 @PerFragment
 interface MainFragmentSubComponent : AndroidInjector<MainFragment> {
 

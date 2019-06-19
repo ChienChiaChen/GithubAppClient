@@ -11,6 +11,7 @@ import com.chiachen.gihubappclient.presentation.base.BaseFragment
 import com.chiachen.gihubappclient.presentation.base.adapters.ItemAdapter
 import com.chiachen.gihubappclient.util.extension.*
 import com.jakewharton.rxbinding2.widget.RxTextView
+import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
@@ -50,9 +51,9 @@ class MainFragment : BaseFragment() {
                 view.clear.toggleVisibility(!isEmpty, true)
             }
 
-        viewModel.dataSet.subscribe(viewLifecycleOwner) { list ->
-            adapter.update(list)
-            emptyStateText.toggleVisibility(list.isEmpty(), true)
+        viewModel.dataSet.subscribe(viewLifecycleOwner) { response ->
+            adapter.update(response.items)
+            emptyStateText.toggleVisibility(response.items.isEmpty() && !response.isSame, true)
         }
 
     }
@@ -63,8 +64,12 @@ class MainFragment : BaseFragment() {
         clear.setOnClickListener { editText.setText("") }
         queryDisposable = RxTextView.afterTextChangeEvents(editText)
             .map { it.editable()!!.toString() }
+            .switchMap { string -> return@switchMap Observable.just(string) }
             .filter { it.isBlank() || it.trim().length >= 2 }
-            .subscribe(viewModel::setNewQuery, Throwable::printStackTrace)
+            .subscribe({
+                adapter.clear()
+                viewModel.setNewQuery(it)
+            }, Throwable::printStackTrace)
     }
 
     override fun onPause() {

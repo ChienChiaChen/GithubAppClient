@@ -7,5 +7,7 @@ data class RepoSearchResponse(
     @SerializedName("total_count")
     val total: Int = 0,
     @SerializedName("items")
-    val items: List<Item> = arrayListOf()
-)
+    val items: MutableList<Item> = arrayListOf()
+) {
+    var isSame = false
+}
