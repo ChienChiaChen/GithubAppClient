@@ -1,7 +1,8 @@
-package com.chiachen.gihubappclient.presentation.main.di
+package com.chiachen.gihubappclient.presentation.main.di.activity
 
 import com.chiachen.gihubappclient.di.scope.PerActivity
 import com.chiachen.gihubappclient.presentation.main.MainActivity
+import com.chiachen.gihubappclient.presentation.main.di.fragment.MainFragmentInjector
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

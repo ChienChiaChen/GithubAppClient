@@ -2,7 +2,7 @@ package com.chiachen.gihubappclient.di
 
 import com.chiachen.gihubappclient.App
 import com.chiachen.gihubappclient.api.github.GithubModule
-import com.chiachen.gihubappclient.presentation.main.di.MainActivityInjector
+import com.chiachen.gihubappclient.presentation.main.di.activity.MainActivityInjector
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector

@@ -1,8 +1,9 @@
-package com.chiachen.gihubappclient
+package com.chiachen.gihubappclient.presentation.base.adapters
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.chiachen.gihubappclient.R
 import com.chiachen.gihubappclient.di.GlideApp
 
 object BindingsAdapter {

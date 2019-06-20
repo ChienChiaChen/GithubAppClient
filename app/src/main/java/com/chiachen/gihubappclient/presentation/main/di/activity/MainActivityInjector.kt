@@ -1,4 +1,4 @@
-package com.chiachen.gihubappclient.presentation.main.di
+package com.chiachen.gihubappclient.presentation.main.di.activity
 
 import com.chiachen.gihubappclient.presentation.main.MainActivity
 import dagger.Binds

@@ -1,4 +1,4 @@
-package com.chiachen.gihubappclient.presentation.main.di
+package com.chiachen.gihubappclient.presentation.main.di.fragment
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel

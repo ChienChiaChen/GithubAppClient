@@ -17,25 +17,25 @@ class MainFragmentViewModel @Inject constructor(
 
     private var queryLiveData: MutableLiveData<Pair<String, Int>> = MutableLiveData()
     private var page: Int = 1
-    private var flagOfUserName = ""
+    private var currentQueryName = ""
 
     val dataSet: LiveData<RepoSearchResponse> = Transformations.switchMap(queryLiveData) { input ->
         if (input.first.isEmpty()) {
-            flagOfUserName = ""
+            currentQueryName = ""
         }
         githubService.searchRepos(input.first, input.second)
             .subscribeOn(schedulers.io())
             .observeOn(schedulers.ui())
             .onErrorReturn {
                 return@onErrorReturn RepoSearchResponse().apply {
-                    isSame = input.first.isNotEmpty() && input.first == flagOfUserName
-                    flagOfUserName = ""
+                    isSame = input.first.isNotEmpty() && input.first == currentQueryName
+                    currentQueryName = ""
                     page = 1
                 }
             }
             .doOnSuccess {
-                flagOfUserName = input.first
-                it.isSame = it.items.isEmpty() && flagOfUserName.isNotEmpty()
+                currentQueryName = input.first
+                it.isSame = it.items.isEmpty() && currentQueryName.isNotEmpty()
                 page++
             }
             .asLiveData()
@@ -48,6 +48,6 @@ class MainFragmentViewModel @Inject constructor(
     }
 
     fun loadMore() {
-        queryLiveData.value = Pair(flagOfUserName, page)
+        queryLiveData.value = Pair(currentQueryName, page)
     }
 }

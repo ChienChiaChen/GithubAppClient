@@ -1,4 +1,4 @@
-package com.chiachen.gihubappclient.presentation.main.di
+package com.chiachen.gihubappclient.presentation.main.di.activity
 
 import android.app.Activity
 import android.content.Context
@@ -14,7 +14,6 @@ import com.chiachen.gihubappclient.presentation.navigator.NavigatorImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import dagger.multibindings.IntoMap
 
 @Module(includes = [MainActivityModule.Binding::class])
 class MainActivityModule(private val activity: MainActivity) {
