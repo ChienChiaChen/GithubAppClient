@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GihubAppClient</string>
+    <string name="app_name">GithubAppClient</string>
 
     <string name="search_recent_empty_state">Search User..</string>
     <string name="search_hint">@string/search_recent_empty_state</string>

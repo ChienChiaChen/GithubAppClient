@@ -6,7 +6,7 @@
 
     <data>
         <import type="android.view.View"/>
-        <variable name="item" type="com.chiachen.gihubappclient.model.Item"/>
+        <variable name="item" type="com.chiachen.githubappclient.model.Item"/>
     </data>
 
     <FrameLayout
@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                <com.chiachen.gihubappclient.util.widget.ShapeImageView
+                <com.chiachen.githubappclient.util.widget.ShapeImageView
                         android:id="@+id/cover"
                         android:layout_width="@dimen/item_cover_size"
                         android:layout_height="@dimen/item_cover_size"
